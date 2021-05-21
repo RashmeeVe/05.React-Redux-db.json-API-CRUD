@@ -98,7 +98,8 @@ class AddUser extends React.Component {
       this.props.match.params.id
         ? this.props.editUserData(user, this.props.match.params.id)
         : this.props.addUserData(user);
-      this.props.history.push("/show_users_table");
+      // this.props.history.push("/show_users_table");
+      window.location.href = "/show_users_table";
     }
   };
 
