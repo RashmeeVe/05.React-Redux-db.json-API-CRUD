@@ -43,8 +43,18 @@ const styles = {
 };
 
 class Home extends React.Component {
-  componentDidMount = () => {
+  constructor(props) {
+    super(props);
     this.props.fetchAPIdata();
+  }
+
+  // componentDidMount = () => {
+  //   this.props.fetchAPIdata();
+  // };
+
+  deleteUser = (id) => {
+    this.props.deleteUser(id);
+    window.location.reload();
   };
 
   render() {
@@ -85,7 +95,7 @@ class Home extends React.Component {
                       <Link
                         aria-label="delete"
                         to={`#`}
-                        onClick={() => this.props.deleteUser(data.id)}
+                        onClick={() => this.deleteUser(data.id)}
                       >
                         <DeleteIcon color="secondary" />
                       </Link>
