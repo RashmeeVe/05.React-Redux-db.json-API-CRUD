@@ -1,7 +1,6 @@
-export const fetchAPIdata = () => (dispatch) => {
-  let url = "http://localhost:2000/users";
-  //   let url = " https://jsonplaceholder.typicode.com/users";
+const url = "http://localhost:2000/users";
 
+export const fetchAPIdata = () => (dispatch) => {
   fetch(url).then((data) => {
     data.json().then((apiData) => {
       return dispatch({
@@ -29,9 +28,7 @@ export const deleteUser = (id) => (dispatch) => {
 };
 
 export const getUserData = (id) => (dispatch) => {
-  let url = `http://localhost:2000/users/${id}`;
-
-  fetch(url).then((data) => {
+  fetch(`${url}/${id}`).then((data) => {
     data.json().then((userData) => {
       return dispatch({
         type: "GET_USER_DATA",
